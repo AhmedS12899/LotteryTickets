@@ -19,5 +19,20 @@ window.onload = loadWinningTicketsTable;
 
 
 function loadWinningTicketsTable(){
-    
+    const tableBody = document.getElementById("winningTicketsTblBody");
+    for(let ticket of winningTickets){
+        buildTicketRow(tableBody, ticket);
+    }
+}
+
+function buildTicketRow(tbody, ticket){
+    let row = tbody.insertRow();
+    let tdTicketnumber = row.insertCell(0);
+    tdTicketnumber.innerHTML = ticket.tixNum;
+
+    let tdprize = row.insertCell(1);
+    tdprize.innerHTML = "$" + ticket.prize.toFixed(2); 
+
+    let tdexpires = row.insertCell(2);
+    tdexpires.innerHTML = ticket.expires;
 }
